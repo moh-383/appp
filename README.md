@@ -43,7 +43,7 @@ Application Flutter pour le contrôle d’un rover autonome dédié à la *colle
 
 git clone https://github.com/moh-383/Appli.git
 
-### 2. Lancer l'application Flutter g
+### 2. Lancer l'application Flutter 
 flutter run 
 
 ### 3. Lancer le backend 
