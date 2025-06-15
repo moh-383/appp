@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'ROVER CONTROL',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home:  HomeScreen(),
     );
   }
 }

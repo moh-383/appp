@@ -14,14 +14,11 @@ class HomeScreen extends StatelessWidget {
 
             // IMAGE DU ROVER
             Image.asset(
-              'assets/images/Rover.jpg', 
+              'assets/Rover.jpg',
               height: 250,
               fit: BoxFit.contain,
             ),
 
-            const SizedBox(height: 20),
-
-            // TITRE
             const Text(
               'ROVER CONTROL',
               style: TextStyle(
@@ -30,6 +27,10 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+
+
+
+            // TITRE
 
             const SizedBox(height: 30),
 
