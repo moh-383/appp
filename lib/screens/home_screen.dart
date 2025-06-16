@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
+import '../widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,95 +8,99 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1B1B1D),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            const SizedBox(height: 20),
-
-            // IMAGE DU ROVER
-            Image.asset(
+      backgroundColor: AppColors.background,
+      body: Stack(
+        children: [
+          // IMAGE DE FOND (avec hauteur contrôlée)
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset(
               'assets/Rover.jpg',
-              height: 250,
-              fit: BoxFit.contain,
+              height: 430, // Contrôle de la hauteur
+              fit: BoxFit.cover,
             ),
+          ),
 
-            const Text(
-              'ROVER CONTROL',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-
-
-
-            // TITRE
-
-            const SizedBox(height: 30),
-
-            // BUTTONS
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
+          // CONTENU AVANT-PLAN
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(40, 320, 40, 60), // Positionne les éléments en dessous de l’image
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _buildButton(context, Icons.drive_eta, 'Piloter le Rover'),
-                  _buildButton(context, Icons.sensors, 'Voir les données capteurs'),
-                  _buildButton(context, Icons.map, 'Cartographie du terrain'),
+                  Center(
+                    child: Text(
+                      'ROVER CONTROL',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textColor,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  CustomButton(
+                    text: 'Piloter le Rover',
+                    icon: Icons.directions_car,
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CustomButton(
+                    text: 'Voir les données capteurs',
+                    icon: Icons.bar_chart,
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: 20),
+                  CustomButton(
+                    text: 'Cartographie du terrain',
+                    icon: Icons.map,
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: 30),
+                  const Text(
+                    'A propos\nProjet Rover 2025\nÉquipe X',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: AppColors.textColor,
+                      fontSize: 14,
+                    ),
+                  ),
                 ],
               ),
             ),
-
-            const Spacer(),
-
-            // A PROPOS
-            const Text(
-              'À propos\nProjet Rover 2025\nÉquipe X',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white70),
-            ),
-
-            const SizedBox(height: 10),
-          ],
-        ),
+          ),
+        ],
       ),
 
       // NAVIGATION BASSE
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF2B2B2E),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-          BottomNavigationBarItem(icon: Icon(Icons.ssid_chart), label: 'Données'),
-          BottomNavigationBarItem(icon: Icon(Icons.drive_eta), label: 'Contrôle'),
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Carte'),
-        ],
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: AppColors.navBarColor,
+        selectedItemColor: AppColors.textColor,
+        unselectedItemColor: AppColors.textColor,
         currentIndex: 0,
-        onTap: (index) {
-          // Navigation à gérer plus tard
-        },
-      ),
-    );
-  }
-
-  Widget _buildButton(BuildContext context, IconData icon, String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue.shade700,
-          minimumSize: const Size.fromHeight(50),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        ),
-        onPressed: () {
-          // Action à définir
-        },
-        icon: Icon(icon, color: Colors.white),
-        label: Text(text, style: const TextStyle(color: Colors.white)),
+        onTap: (index) {}, // À remplir plus tard
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Accueil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ssid_chart),
+            label: 'Données',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.drive_eta),
+            label: 'Contrôle',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'Carte',
+          ),
+        ],
       ),
     );
   }
 }
-
