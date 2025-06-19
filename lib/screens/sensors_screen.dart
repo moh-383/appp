@@ -34,31 +34,68 @@ class DonneesCapteursPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            // 🔴 Zone stylée de détection de mine
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.red.shade900.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(10),
+                color: Colors.red.withOpacity(0.15),
+                border: Border.all(color: Colors.redAccent, width: 2),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.redAccent.withOpacity(0.4),
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
-              child: const Text(
-                'Détection Mines:\nMINE DETECTEE',
-                style: TextStyle(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              child: Row(
+                children: const [
+                  Icon(Icons.warning_amber_rounded,
+                      color: Colors.redAccent, size: 36),
+                  SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Détection de Mines',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          '⚠ MINE DÉTECTÉE',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
+
             const SizedBox(height: 16),
-            _buildDataRow('Batterie', '86%'),
-            _buildDataRow('Température', '23,5°C'),
-            _buildDataRow('Humidité', '45%'),
-            _buildDataRow('Distance', '120 cm'),
-            _buildDataRow('Subsurface', '12,8°C'),
-            _buildDataRow('Pressure', '1012 hPa'),
-            _buildDataRow('Motor Voltage', '7,4 V'),
+
+            // 🧾 Lignes de données avec icônes
+            _buildDataRow(Icons.battery_full, 'Batterie', '86%'),
+            _buildDataRow(Icons.thermostat, 'Température', '23,5°C'),
+            _buildDataRow(Icons.water_drop, 'Humidité', '45%'),
+            _buildDataRow(Icons.straighten, 'Distance', '120 cm'),
+            _buildDataRow(Icons.landscape, 'Subsurface', '12,8°C'),
+            _buildDataRow(Icons.speed, 'Pression', '1012 hPa'),
+            _buildDataRow(Icons.electric_bolt, 'Motor Voltage', '7,4 V'),
+
             const SizedBox(height: 20),
+
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -66,7 +103,10 @@ class DonneesCapteursPage extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
+
             const SizedBox(height: 10),
+
+            // 🗺 Carte stylisée
             Container(
               height: 60,
               decoration: BoxDecoration(
@@ -79,10 +119,14 @@ class DonneesCapteursPage extends StatelessWidget {
                 ),
               ),
               child: const Center(
-                child: Icon(Icons.navigation, color: Colors.cyanAccent, size: 30),
+                child: Icon(Icons.navigation,
+                    color: Colors.cyanAccent, size: 30),
               ),
             ),
+
             const Spacer(),
+
+            // 🔘 Bouton Actualiser
             Row(
               children: [
                 Expanded(
@@ -92,8 +136,6 @@ class DonneesCapteursPage extends StatelessWidget {
                     label: const Text('Actualiser'),
                   ),
                 ),
-                const SizedBox(width: 12),
-
               ],
             ),
           ],
@@ -102,13 +144,17 @@ class DonneesCapteursPage extends StatelessWidget {
     );
   }
 
-  Widget _buildDataRow(String label, String value) {
+  // 🧩 Widget avec icône + texte + valeur
+  static Widget _buildDataRow(IconData icon, String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: const TextStyle(fontSize: 16)),
+          Icon(icon, color: Colors.cyanAccent, size: 20),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(label, style: const TextStyle(fontSize: 16)),
+          ),
           Text(value, style: const TextStyle(fontSize: 16)),
         ],
       ),
