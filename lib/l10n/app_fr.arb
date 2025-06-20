@@ -1,0 +1,35 @@
+{
+  "settings": "Paramètres",
+  "connect": "Connexion",
+  "connectionInstructions": "1. Activez le Wi-Fi ou le Bluetooth dans les paramètres du téléphone.\n2. Recherchez un appareil nommé \"ROVER_WIFI\" ou \"ROVER_BT\".\n3. Connectez-vous avec le mot de passe : rover1234\n4. Revenez dans l’application pour piloter le rover.",
+  "language": "Langue",
+  "mapTitle": "Cartographie",
+  "about": "À propos",
+  "aboutTitle": "Projet Rover Détecteur de Mines",
+  "aboutDescription": "Ce projet a été développé par une équipe passionnée de jeunes ingénieurs pour la compétition robotique Orange. L’objectif est de concevoir un rover autonome capable de détecter et localiser des mines dans des zones à risques.\n\nÉquipe :\n- Conseiga Mohamed\n- Loari Moumouni\n- Tall Yasmina\nTechnologies utilisées : Flutter, Python, Kivy, Bluetooth/Wi-Fi, capteurs embarqués.",
+  "pilot": "Piloter le rover",
+  "data": "Données & capteurs",
+  "map": "Cartographie du terrain",
+  "mineDetection": "Zone de détection de mine",
+  "mineDetected": "⚠ MINE DÉTECTÉE",
+  "homeTitle": "ROVER CONTROL",
+  "robotName": "Robot Intélligent",
+  "home": "Accueil",
+  "battery": "Batterie",
+  "temperature": "Température",
+  "humidity": "Humidité",
+  "distance": "Distance",
+  "altitude": "Altitude",
+  "pressure": "pression",
+  "voltage": "Tension",
+  "refresh": "Actualiser",
+  "position": "Position",
+  "direction": "Direction",
+  "obstacles": "Obstacles",
+  "mines": "Mines",
+  "area": "Zone explorée"
+
+
+}
+
+

@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:appp/screens/home_screen.dart';
-import 'package:appp/theme/app_colors.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
+import 'utils/language_provider.dart';
+import 'screens/home_screen.dart';
+import 'screens/map_screen.dart';
+import 'screens/sensors_screen.dart';
+import 'screens/settings_screen.dart';
+import 'screens/about_screen.dart';
+import 'l10n/app_localizations.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,19 +25,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final languageProvider = Provider.of<LanguageProvider>(context);
+
     return MaterialApp(
-      title: 'ROVER CONTROL',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        scaffoldBackgroundColor: AppColors.background,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: AppColors.navBarColor,
-          selectedItemColor: AppColors.textColor,
-          unselectedItemColor: AppColors.textColor,
-        ),
-      ),
-      home: const HomeScreen(),
+      title: 'Rover App',
+
+      locale: languageProvider.locale,
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('fr'),// French
+      ],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/map': (context) => const CartographiePage(),
+        '/data': (context) => const DonneesCapteursPage(),
+        '/settings': (context) => const SettingsScreen(),
+        '/about': (context) => const AboutScreen(),
+      },
     );
   }
 }
+
+

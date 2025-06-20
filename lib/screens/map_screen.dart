@@ -1,24 +1,7 @@
+import 'package:appp/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const CartographieApp());
-}
-
-class CartographieApp extends StatelessWidget {
-  const CartographieApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cartographie',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
-      ),
-      home: const CartographiePage(),
-    );
-  }
-}
+import '../theme/app_colors.dart';
+import '../utils/app_drawer.dart';
 
 class CartographiePage extends StatelessWidget {
   const CartographiePage({super.key});
@@ -26,25 +9,23 @@ class CartographiePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: AppColors.iconColor),
+      ),
+      drawer: const AppDrawer(),
       body: SafeArea(
         child: Stack(
           children: [
-            // Titre avec flèche de retour
+            // Titre
             Positioned(
               top: 20,
               left: 20,
               child: Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.cyanAccent),
-                    onPressed: () {
-                      Navigator.of(context).maybePop(); // Retour arrière
-                    },
-                  ),
-                  const SizedBox(width: 5),
-                  const Text(
-                    'CARTOGRAPHIE',
-                    style: TextStyle(
+                  Text(AppLocalizations.of(context)!.mapTitle,
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.cyanAccent,
@@ -146,11 +127,11 @@ class CartographiePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  dataRow(Icons.location_on, 'Position: 23,4,57.1', Colors.cyanAccent),
-                  dataRow(Icons.navigation, 'Orientation: 135°', Colors.cyanAccent),
-                  dataRow(Icons.warning, 'Obstacles détectés: 2', Colors.yellow),
-                  dataRow(Icons.whatshot, 'Mines détectées: 1', Colors.red),
-                  dataRow(Icons.circle, 'Zone explorée: 35%', Colors.greenAccent),
+                  dataRow(Icons.location_on, '${AppLocalizations.of(context)!.position}: 23,4,57.1', Colors.cyanAccent),
+                  dataRow(Icons.navigation, '${AppLocalizations.of(context)!.direction}: 135°', Colors.cyanAccent),
+                  dataRow(Icons.warning, '${AppLocalizations.of(context)!.obstacles}: 2', Colors.yellow),
+                  dataRow(Icons.whatshot, '${AppLocalizations.of(context)!.mines}: 1', Colors.red),
+                  dataRow(Icons.circle, '${AppLocalizations.of(context)!.area}: 35%', Colors.greenAccent),
                 ],
               ),
             ),
