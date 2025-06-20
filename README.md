@@ -21,6 +21,8 @@ Application Flutter pour le contrôle d’un rover autonome dédié à la *colle
 
 | 🗺 Cartographie     | Carte avec localisation et itinéraire du rover       |
 
+| Paramètres    |  Contenant différents paramètres       |
+
 ## 🧪 Technologies utilisées
 
 - *Flutter* pour l’interface mobile (Android / iOS)
