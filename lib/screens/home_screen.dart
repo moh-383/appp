@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../theme/app_colors.dart';
+import '../utils/app_drawer.dart';
 import '../widgets/custom_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,11 @@ class HomeScreen extends StatelessWidget {
 Widget build(BuildContext context) {
   return Scaffold(
     backgroundColor: AppColors.background,
+    appBar: AppBar(backgroundColor: Colors.transparent,
+      elevation: 0,
+      iconTheme: const IconThemeData(color: AppColors.iconColor),
+    ),
+    drawer: const AppDrawer(),
 
     body: Stack(
       children: [
