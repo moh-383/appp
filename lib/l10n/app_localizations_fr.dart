@@ -94,4 +94,28 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get area => 'Zone explorée';
+
+  @override
+  String get forward => 'Avance';
+
+  @override
+  String get backward => 'Recule';
+
+  @override
+  String get left => 'Gauche';
+
+  @override
+  String get right => 'Droite';
+
+  @override
+  String get stop => 'Arrêter';
+
+  @override
+  String get autoMode => 'Mode automatique';
+
+  @override
+  String get reset => 'Renitialiser';
+
+  @override
+  String get cameraView => 'Vue de la caméra';
 }

@@ -94,4 +94,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get area => 'Area explored';
+
+  @override
+  String get forward => 'Forward';
+
+  @override
+  String get backward => 'Backward';
+
+  @override
+  String get left => 'Left';
+
+  @override
+  String get right => 'Right';
+
+  @override
+  String get stop => 'Stop';
+
+  @override
+  String get autoMode => 'Auto Mode';
+
+  @override
+  String get reset => 'Reset';
+
+  @override
+  String get cameraView => 'Camera View';
 }

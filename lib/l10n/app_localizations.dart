@@ -268,6 +268,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Area explored'**
   String get area;
+
+  /// No description provided for @forward.
+  ///
+  /// In en, this message translates to:
+  /// **'Forward'**
+  String get forward;
+
+  /// No description provided for @backward.
+  ///
+  /// In en, this message translates to:
+  /// **'Backward'**
+  String get backward;
+
+  /// No description provided for @left.
+  ///
+  /// In en, this message translates to:
+  /// **'Left'**
+  String get left;
+
+  /// No description provided for @right.
+  ///
+  /// In en, this message translates to:
+  /// **'Right'**
+  String get right;
+
+  /// No description provided for @stop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get stop;
+
+  /// No description provided for @autoMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto Mode'**
+  String get autoMode;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @cameraView.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera View'**
+  String get cameraView;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

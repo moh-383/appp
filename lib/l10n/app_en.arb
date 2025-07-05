@@ -27,5 +27,13 @@
   "direction": "Direction",
   "obstacles": "Obstacles",
   "mines": "Mines",
-  "area": "Area explored"
+  "area": "Area explored",
+  "forward": "Forward",
+  "backward": "Backward",
+  "left": "Left",
+  "right": "Right",
+  "stop": "Stop",
+  "autoMode": "Auto Mode",
+  "reset": "Reset",
+  "cameraView": "Camera View"
 }

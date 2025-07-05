@@ -1,3 +1,4 @@
+import 'package:appp/screens/controle_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/data': (context) => const DonneesCapteursPage(),
         '/settings': (context) => const SettingsScreen(),
         '/about': (context) => const AboutScreen(),
+        '/control': (context) => const ControlScreen(),
       },
     );
   }
