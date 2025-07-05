@@ -111,9 +111,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stop => 'Stop';
 
   @override
-  String get autoMode => 'Auto Mode';
-
-  @override
   String get reset => 'Reset';
 
   @override

@@ -299,12 +299,6 @@ abstract class AppLocalizations {
   /// **'Stop'**
   String get stop;
 
-  /// No description provided for @autoMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Auto Mode'**
-  String get autoMode;
-
   /// No description provided for @reset.
   ///
   /// In en, this message translates to:

@@ -111,12 +111,6 @@ class ControlScreen extends StatelessWidget {
                     textColor: Colors.white,
                   ),
                   _buildControlButton(
-                    label: loc.autoMode,
-                    onPressed: () => debugPrint('Auto pressed'),
-                    backgroundColor: Colors.yellow,
-                    textColor: Colors.black,
-                  ),
-                  _buildControlButton(
                     label: loc.reset,
                     onPressed: () => debugPrint('Reset pressed'),
                     backgroundColor: AppColors.buttonColor,
