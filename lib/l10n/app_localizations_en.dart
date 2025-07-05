@@ -115,4 +115,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cameraView => 'Camera View';
+
+  @override
+  String get controlTitle => 'Drive Rover';
 }

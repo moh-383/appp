@@ -34,5 +34,6 @@
   "right": "Right",
   "stop": "Stop",
   "reset": "Reset",
-  "cameraView": "Camera View"
+  "cameraView": "Camera View",
+  "controlTitle": "Drive Rover"
 }

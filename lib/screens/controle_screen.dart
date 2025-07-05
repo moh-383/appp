@@ -24,8 +24,23 @@ class ControlScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 20, 16, 30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Caméra
+              // 🔹 Titre de la page
+              Center(
+                child: Text(
+                  loc.controlTitle, // Ajouté
+                  style: const TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textColor,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // 🔹 Zone caméra
               Container(
                 width: double.infinity,
                 height: 200,
@@ -53,7 +68,7 @@ class ControlScreen extends StatelessWidget {
 
               const SizedBox(height: 60),
 
-              // Joystick
+              // 🔹 Joystick
               Center(
                 child: Joystick(
                   mode: JoystickMode.all,
@@ -98,7 +113,7 @@ class ControlScreen extends StatelessWidget {
 
               const SizedBox(height: 60),
 
-              // Boutons de contrôle avec Wrap
+              // 🔹 Boutons
               Wrap(
                 alignment: WrapAlignment.center,
                 spacing: 20,

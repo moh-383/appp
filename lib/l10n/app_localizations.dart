@@ -310,6 +310,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Camera View'**
   String get cameraView;
+
+  /// No description provided for @controlTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Drive Rover'**
+  String get controlTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

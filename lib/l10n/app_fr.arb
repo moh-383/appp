@@ -34,7 +34,9 @@
   "left": "Gauche",
   "right": "Droite",
   "stop": "Arrêter",
-  "reset": "Renitialiser"
+  "reset": "Renitialiser",
+  "controlTitle": "Piloter le rover"
+
 
 
 
