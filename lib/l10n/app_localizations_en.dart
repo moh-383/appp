@@ -118,4 +118,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get controlTitle => 'Drive Rover';
+
+  @override
+  String get noMine => 'no mine detected';
+
+  @override
+  String get startArm => 'Start Arm';
+
+  @override
+  String get stopArm => 'Stop Arm';
+
+  @override
+  String get auto => 'Auto';
+
+  @override
+  String get cameraError => 'Camera Error';
 }

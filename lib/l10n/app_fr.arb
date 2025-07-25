@@ -35,7 +35,14 @@
   "right": "Droite",
   "stop": "Arrêter",
   "reset": "Renitialiser",
-  "controlTitle": "Piloter le rover"
+  "controlTitle": "Piloter le rover",
+  "noMine": "aucune mine détecté",
+  "startArm": "Activer bras",
+  "stopArm": "Arrêter bras",
+  "auto": "Mode automatique",
+  "cameraError": "Erreur de la caméra",
+  "auto": " auto"
+
 
 
 

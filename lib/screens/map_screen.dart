@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
 import '../theme/app_colors.dart';
 import '../utils/app_drawer.dart';
 import '../l10n/app_localizations.dart';
@@ -17,13 +19,17 @@ class _CartographiePageState extends State<CartographiePage> {
   double latitude = 0.0;
   double longitude = 0.0;
   int angle = 0;
+  int obstacles = 0;
+  int mines = 0;
   Timer? timer;
+
+  final String backendUrl = 'http://127.0.0.1:8000/map/'; // à adapter
 
   @override
   void initState() {
     super.initState();
-    fetchGPSData(); // Appel initial
-    timer = Timer.periodic(const Duration(seconds: 3), (_) => fetchGPSData());
+    fetchData();
+    timer = Timer.periodic(const Duration(seconds: 2), (_) => fetchData());
   }
 
   @override
@@ -32,21 +38,23 @@ class _CartographiePageState extends State<CartographiePage> {
     super.dispose();
   }
 
-  Future<void> fetchGPSData() async {
+  Future<void> fetchData() async {
     try {
-      final response = await http.get(Uri.parse('http://<IP_DU_BACKEND>:8000/gps'));
+      final response = await http.get(Uri.parse(backendUrl));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        if (!data.containsKey('error')) {
-          setState(() {
-            latitude = data['lat'];
-            longitude = data['lon'];
-            angle = data['angle'];
-          });
-        }
+        setState(() {
+          latitude = data['latitude'] ?? 0.0;
+          longitude = data['longitude'] ?? 0.0;
+          angle = 0; // à mettre à jour si tu ajoutes au backend
+          obstacles = 0;
+          mines = 0;
+        });
       }
     } catch (e) {
-      print('Erreur de récupération GPS : $e');
+      if (kDebugMode) {
+        print('Erreur récupération GPS : $e');
+      }
     }
   }
 
@@ -63,7 +71,6 @@ class _CartographiePageState extends State<CartographiePage> {
       body: SafeArea(
         child: Stack(
           children: [
-            // Titre
             Positioned(
               top: 20,
               left: 20,
@@ -76,8 +83,6 @@ class _CartographiePageState extends State<CartographiePage> {
                 ),
               ),
             ),
-
-            // Carte fictive avec position du robot
             Positioned.fill(
               top: 70,
               child: Center(
@@ -102,15 +107,23 @@ class _CartographiePageState extends State<CartographiePage> {
                           ],
                         ),
                       ),
-                      const Positioned(top: 20, left: 20, child: Icon(Icons.warning, color: Colors.yellow, size: 30)),
-                      const Positioned(bottom: 10, right: 10, child: Icon(Icons.whatshot, color: Colors.red, size: 30)),
+                      if (obstacles > 0)
+                        const Positioned(
+                          top: 20,
+                          left: 20,
+                          child: Icon(Icons.warning, color: Colors.yellow, size: 30),
+                        ),
+                      if (mines > 0)
+                        const Positioned(
+                          bottom: 10,
+                          right: 10,
+                          child: Icon(Icons.whatshot, color: Colors.red, size: 30),
+                        ),
                     ],
                   ),
                 ),
               ),
             ),
-
-            // Infos textuelles
             Positioned(
               bottom: 20,
               left: 20,
@@ -119,8 +132,8 @@ class _CartographiePageState extends State<CartographiePage> {
                 children: [
                   dataRow(Icons.location_on, 'Lat: ${latitude.toStringAsFixed(5)}, Lon: ${longitude.toStringAsFixed(5)}', Colors.cyanAccent),
                   dataRow(Icons.navigation, '${AppLocalizations.of(context)!.direction}: $angle°', Colors.cyanAccent),
-                  dataRow(Icons.warning, '${AppLocalizations.of(context)!.obstacles}: 2', Colors.yellow),
-                  dataRow(Icons.whatshot, '${AppLocalizations.of(context)!.mines}: 1', Colors.red),
+                  dataRow(Icons.warning, '${AppLocalizations.of(context)!.obstacles}: $obstacles', Colors.yellow),
+                  dataRow(Icons.whatshot, '${AppLocalizations.of(context)!.mines}: $mines', Colors.red),
                 ],
               ),
             ),

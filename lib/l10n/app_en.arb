@@ -35,5 +35,12 @@
   "stop": "Stop",
   "reset": "Reset",
   "cameraView": "Camera View",
-  "controlTitle": "Drive Rover"
+  "controlTitle": "Drive Rover",
+  "noMine": "no mine detected",
+  "startArm": "Start Arm",
+  "stopArm": "Stop Arm",
+  "auto": "Auto Mode",
+  "cameraError": "Camera Error",
+  "auto": "Auto"
+
 }

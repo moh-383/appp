@@ -118,4 +118,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get controlTitle => 'Piloter le rover';
+
+  @override
+  String get noMine => 'aucune mine détecté';
+
+  @override
+  String get startArm => 'Activer bras';
+
+  @override
+  String get stopArm => 'Arrêter bras';
+
+  @override
+  String get auto => ' auto';
+
+  @override
+  String get cameraError => 'Erreur de la caméra';
 }

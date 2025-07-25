@@ -316,6 +316,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Drive Rover'**
   String get controlTitle;
+
+  /// No description provided for @noMine.
+  ///
+  /// In en, this message translates to:
+  /// **'no mine detected'**
+  String get noMine;
+
+  /// No description provided for @startArm.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Arm'**
+  String get startArm;
+
+  /// No description provided for @stopArm.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop Arm'**
+  String get stopArm;
+
+  /// No description provided for @auto.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto'**
+  String get auto;
+
+  /// No description provided for @cameraError.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera Error'**
+  String get cameraError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
