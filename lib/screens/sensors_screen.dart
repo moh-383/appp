@@ -25,7 +25,7 @@ class _DonneesCapteursPageState extends State<DonneesCapteursPage> {
   };
 
   Timer? _timer;
-  final String backendUrl = 'http://127.0.0.1:8000/map/'; // ← Modifie ici
+  final String backendUrl = 'http://127.0.0.1:8000 '; // ← Modifie ici
 
   Future<void> fetchData() async {
     try {

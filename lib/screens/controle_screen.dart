@@ -11,8 +11,8 @@ import '../theme/app_colors.dart';
 class ControlScreen extends StatelessWidget {
   const ControlScreen({super.key});
 
-  static const String backendUrl = 'http://127.0.0.1:8000/map/';
-  static const String esp32CamUrl = 'http://192.168.137.138';
+  static const String backendUrl = 'http://127.0.0.1:8000 ';
+  static const String esp32CamUrl = 'http://172.19.218.206';
 
   Future<void> sendCommand(String direction) async {
     try {
